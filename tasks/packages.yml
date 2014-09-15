@@ -1,0 +1,25 @@
+---
+
+- name: repositories key
+  apt_key: >
+    url=http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0xcbcb082a1bb943db
+    state=present
+  sudo: yes
+
+- name: repositories
+  apt_repository: >
+    repo="{{ item }}"
+    state=present
+    update_cache=yes
+  with_items:
+    - deb http://ftp.igh.cnrs.fr/pub/mariadb/repo/10.0/debian {{ ansible_distribution_release }} main
+  sudo: yes
+
+- name: packages
+  apt: >
+    name={{ item }}
+    state=present
+  with_items:
+    - python-software-properties
+    - mariadb-server
+  sudo: yes

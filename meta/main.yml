@@ -1,0 +1,20 @@
+---
+
+dependencies:
+
+  - { role: elao.base }
+
+galaxy_info:
+
+  author:              elao
+  description:         A MariaDB Server role for elao symfony standard vagrant box
+  company:             elao
+  license:             MIT
+  min_ansible_version: 1.7.0
+  platforms:
+    - name: Debian
+  versions:
+    - wheezy
+  categories:
+    - development
+    - web

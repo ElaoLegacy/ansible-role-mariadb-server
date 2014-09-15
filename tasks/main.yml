@@ -1,0 +1,6 @@
+---
+
+- include: packages.yml
+- include: services.yml
+- include: users.yml
+- include: databases.yml
