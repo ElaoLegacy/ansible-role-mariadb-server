@@ -1,4 +1,4 @@
 ---
 
-elao_mariadb_users: {}
-elao_mariadb_databases: {}
+elao_mysql_users: {}
+elao_mysql_databases: {}
