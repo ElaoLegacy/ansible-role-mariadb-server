@@ -1,4 +1,10 @@
 ---
 
-elao_mysql_users: {}
-elao_mysql_databases: {}
+elao_mysql_users: []
+elao_mysql_databases: []
+
+elao_mysql_login_user:     root
+elao_mysql_login_password: null
+elao_mysql_login_host:     localhost
+
+elao_mysql_login_auto: false

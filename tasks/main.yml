@@ -2,5 +2,13 @@
 
 - include: packages.yml
 - include: services.yml
+
+- name: login auto
+  shell: >
+    grep "password = " /etc/mysql/debian.cnf | head -1 | cut -d '=' -f2 | tr -d ' '
+  register: elao_mysql_login_auto
+  when: elao_mysql_login_auto and (elao_mysql_users|length > 0 or elao_mysql_databases|length > 0)
+  sudo: yes
+
 - include: users.yml
 - include: databases.yml

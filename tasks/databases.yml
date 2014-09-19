@@ -1,1 +1,11 @@
 ---
+
+- name: databases
+  mysql_db: >
+    name={{ item.name }}
+    login_user={{ elao_mysql_login_user }}
+    login_password={{ elao_mysql_login_auto.stdout|default('') if elao_mysql_login_auto else elao_mysql_login_password }}
+    login_host={{ elao_mysql_login_host }}
+    state=present
+  with_items: elao_mysql_databases
+  when: elao_mysql_databases|length > 0

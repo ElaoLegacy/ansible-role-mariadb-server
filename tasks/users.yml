@@ -1,1 +1,14 @@
 ---
+
+- name: users
+  mysql_user: >
+    name={{ item.name }}
+    password={{ item.password }}
+    priv={{ item.priv }}
+    host={{ item.host }}
+    login_user={{ elao_mysql_login_user }}
+    login_password={{ elao_mysql_login_auto.stdout|default('') if elao_mysql_login_auto else elao_mysql_login_password }}
+    login_host={{ elao_mysql_login_host }}
+    state=present
+  with_items: elao_mysql_users
+  when: elao_mysql_users|length > 0
